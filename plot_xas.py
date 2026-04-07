@@ -1099,8 +1099,8 @@ data_str = """
 # Parse DATA
 lines = [ln.strip() for ln in data_str.strip().splitlines() if ln.strip()]
 data = np.array([list(map(float, ln.split('\t'))) for ln in lines])
-Re = data[:,0]
-Im = data[:,1]
+En = data[:,0]
+Ab = data[:,1]
 
 # PLOT 
 hex_colors = [
@@ -1116,7 +1116,7 @@ hex_colors = [
 
 figfile = 'xas_ana.png'
 fig, ax = plt.subplots(figsize=(8, 8))
-plt.plot(Re, Im, 'o', label='XAS Measurements', markersize=4,color=hex_colors[1])
+plt.plot(En, Ab, 'o', label='XAS Measurements', markersize=4,color=hex_colors[1])
 plt.xlabel('Energy / eV')
 plt.ylabel('Normalized Absorption / a.u')
 plt.title('')
@@ -1152,5 +1152,4 @@ plt.savefig(figfile, dpi=300)
 plt.show()
 print("Saved figure:", figfile)
 
-# In case you have pellet thickness (L) and electrode area (A), compute conductivity:
-# sigma = L / (R_bulk * A)
+
